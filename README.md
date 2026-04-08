@@ -10,3 +10,4 @@ A premium cinematic portfolio site for an AI video storytelling studio, built wi
 3. Start the app:
    `python app.py`
 4. Open the local URL shown in the terminal.
+# chitrakala-portfolio

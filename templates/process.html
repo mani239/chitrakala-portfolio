@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Process | {{ studio_name }}{% endblock %}
+{% block description %}Enterprise localization workflow from briefing to global delivery.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Process</p>
+  <h1 class="page-title">Localization workflow</h1>
+  <p class="page-intro">Secure, scalable production pipelines with QA gates and global delivery orchestration.</p>
+</section>
+
+<section class="section process-grid reveal-stagger">
+  {% for item in process %}
+  <article class="process-card reveal">
+    <div class="process-icon" aria-hidden="true">{{ item.icon }}</div>
+    <div class="process-number">{{ item.index }}</div>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.text }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

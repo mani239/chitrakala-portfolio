@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Contact | {{ studio_name }}{% endblock %}
+{% block description %}Contact {{ studio_name }} for enterprise localization and post-production support.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Contact</p>
+  <h1 class="page-title">Executive contact</h1>
+  <p class="page-intro">Connect with our localization leadership team for global delivery planning.</p>
+</section>
+
+<section class="section contact-layout reveal-stagger">
+  <div class="contact-panel reveal">
+    <p class="contact-label">Address</p>
+    <p class="contact-value">{{ contact.address }}</p>
+    <p class="contact-label">Phone</p>
+    {% for phone in contact.phones %}
+    <p class="contact-value"><a href="tel:{{ phone|replace(' ', '') }}">{{ phone }}</a></p>
+    {% endfor %}
+    <p class="contact-label">Email ID</p>
+    <p class="contact-value"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+  </div>
+  <form class="contact-form-card reveal" action="#" method="post">
+    <p class="eyebrow">Send a message</p>
+    <label>Name<input type="text" name="name" placeholder="Your name" /></label>
+    <label>Email ID<input type="email" name="email" placeholder="Your email" /></label>
+    <label>Subject<input type="text" name="subject" placeholder="Project subject" /></label>
+    <label>Message (optional)<textarea name="message" rows="5" placeholder="Tell us about the project"></textarea></label>
+    <button type="submit" class="primary-cta">Send inquiry</button>
+  </form>
+</section>
+{% endblock %}

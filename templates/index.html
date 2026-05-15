@@ -3,158 +3,365 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Storytelling Studio</title>
+    <title>{{ studio_name }} | {{ studio_tagline }}</title>
     <meta
       name="description"
-      content="AI-powered micro-drama content with cinematic visuals and scalable production."
+      content="Premium media localization, dubbing, subtitling, and post-production infrastructure for global entertainment platforms."
     />
+    <meta name="keywords" content="media localization, dubbing, subtitling, closed captioning, transcription, audio post-production, video post-production, animation, multilingual media adaptation, global streaming" />
+    <meta name="author" content="{{ studio_name }}" />
+    <meta name="theme-color" content="#0a0a0a" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chitrakala.media/" />
+    <meta property="og:title" content="{{ studio_name }} - {{ studio_tagline }}" />
+    <meta property="og:description" content="Premium localization, dubbing, subtitling, and post-production for global entertainment." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop" />
+    <meta property="og:site_name" content="{{ studio_name }}" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://chitrakala.media/" />
+    <meta property="twitter:title" content="{{ studio_name }} - {{ studio_tagline }}" />
+    <meta property="twitter:description" content="Premium localization, dubbing, subtitling, and post-production for global entertainment." />
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop" />
+    
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ studio_name }}",
+      "url": "https://chitrakala.media/",
+      "description": "{{ studio_tagline }}",
+      "sameAs": [
+        "https://www.instagram.com/",
+        "https://www.youtube.com/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "contact@chitrakala.media"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23fff'>🎬</text></svg>">
   </head>
   <body>
-    <div class="page-shell">
-      <header class="navbar">
-        <a href="#hero" class="brand">
-          <span class="brand-mark"></span>
-          <span>
-            <strong>Chitrakala</strong>
-            <small>Visual Storytelling Portfolio</small>
-          </span>
-        </a>
+    <div class="page-shell" data-theme="dark">
+      <a class="skip-to-main" href="#main-content">Skip to main content</a>
 
-        <nav class="nav-links">
-          <a href="#projects">Work</a>
-          <a href="#process">Process</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
+      <header class="navbar" role="banner">
+        <div class="navbar-container">
+          <a href="{{ url_for('home') }}" class="brand" aria-label="{{ studio_name }} home">
+            <span class="brand-mark" aria-hidden="true">🎬</span>
+            <span>
+              <strong>Chitrakala Media</strong>
+            </span>
+          </a>
 
-        <a href="#contact" class="nav-cta">Let&apos;s Talk</a>
+          <nav class="nav-links" id="primary-navigation" role="navigation" aria-label="Main navigation">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('services_page') }}" class="nav-link">Services</a>
+            <a href="{{ url_for('work_page') }}" class="nav-link">Work</a>
+            <a href="{{ url_for('process_page') }}" class="nav-link">Process</a>
+            <a href="{{ url_for('about_page') }}" class="nav-link">About</a>
+            <a href="{{ url_for('blogs_page') }}" class="nav-link">Insights</a>
+            <a href="{{ url_for('contact_page') }}" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="nav-toggle" id="navToggle" aria-controls="primary-navigation" aria-expanded="false">Menu</button>
+            <button 
+              class="theme-toggle" 
+              id="themeToggle" 
+              aria-label="Toggle dark/light theme"
+              aria-pressed="false"
+            >
+              <span class="theme-icon" aria-hidden="true">🌙</span>
+            </button>
+          </div>
+        </div>
       </header>
 
-      <main>
-        <section id="hero" class="hero section reveal">
-          <div class="hero-copy">
-            <p class="eyebrow">Visual Storytelling Portfolio</p>
-            <h1>Visual Stories. Crafted with Precision.</h1>
-            <p class="lead">A portfolio of cinematic short-form work focused on storytelling, editing, and visual consistency.</p>
-            <a href="#projects" class="primary-cta">View Work <span>→</span></a>
+      <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="hero" class="hero hero-lux reveal">
+          <div class="hero-canvas" aria-hidden="true">
+            <div class="hero-orb orb-one"></div>
+            <div class="hero-orb orb-two"></div>
+            <div class="hero-orb orb-three"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-streak"></div>
           </div>
-          <div class="hero-orb orb-one"></div>
-          <div class="hero-orb orb-two"></div>
-        </section>
-
-        <section id="showreel" class="section reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Showreel</p>
-            <h2>Showreel</h2>
-          </div>
-          <div class="video-card">
-            <a href="{{ showreel_link }}" target="_blank" rel="noopener noreferrer" class="video-link">
-              <img src="/showreel.jpg" alt="Showreel Thumbnail" class="video-thumbnail" />
-            </a>
-          </div>
-        </section>
-
-        <section id="projects" class="section reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Selected Work</p>
-            <h2>Projects</h2>
-          </div>
-          <div class="projects-grid">
-            {% for project in projects %}
-            <a href="{{ project.video_link }}" target="_blank" rel="noopener noreferrer" class="project-card-link">
-              <article class="project-card">
-                <div class="project-media">
-                  <img src="{{ project.image }}" alt="{{ project.alt }}" class="w-full h-48 object-cover rounded-xl" />
-                </div>
-                <div class="project-body">
-                  <h3>{{ project.title }}</h3>
-                  <p>{{ project.description }}</p>
-                </div>
-              </article>
-            </a>
-            {% endfor %}
-          </div>
-        </section>
-
-        <section id="process" class="section reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Workflow</p>
-            <h2>Process</h2>
-          </div>
-          <div class="process-grid">
-            {% for item in process %}
-            <div class="process-card">
-              <div class="process-icon">{{ item.index }}</div>
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.text }}</p>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        <section id="about" class="section reveal">
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>About</h2>
-          </div>
-          <div class="about-card">
-            <p>
-              I’m Manideep Chandragiri, a visual storyteller and former head of Chitrakala, a college creative club.
-              <br /><br />
-              I have created 40+ short-form video projects along with hands-on experience in traditional filmmaking, including short films and college documentaries.
-              <br /><br />
-              My work focuses on storytelling, pacing, and visual consistency, combining filmmaking fundamentals with modern creative tools.
-              <br /><br />
-              I’m adaptable to different styles, formats, and creative requirements, and I enjoy exploring new approaches to visual storytelling.
-              <br /><br />
-              Currently, I’m focused on refining my craft and building stronger, more structured visual narratives.
-              <br /><br />
-              More work and ongoing projects can be found on YouTube and Instagram.
-            </p>
-          </div>
-        </section>
-
-        <section id="contact" class="section reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>Contact</h2>
-          </div>
-          <div class="contact-grid contact-simple">
-            <div class="contact-card">
-              <p class="eyebrow">Let's Connect</p>
-              <h3>Open to collaboration.</h3>
-              <p class="contact-message">
-                Open to collaborations, creative projects, and opportunities.
-                <br />Feel free to reach out directly via email.
+          <div class="hero-content">
+            <div class="hero-copy">
+              <p class="eyebrow">Global Media Localization</p>
+              <h1 class="hero-title">Global Stories. Local Voices.</h1>
+              <p class="lead hero-subhead">
+                Premium localization, dubbing, and post-production infrastructure for the world’s most demanding streaming platforms and studios.
               </p>
-              <a href="mailto:chandragirimanideep@gmail.com?subject=Project%20Inquiry&body=Hi%20Manideep," class="primary-cta" style="margin-top: 1.8rem;">
-                Send Email
+              <div class="hero-ctas">
+                <a href="{{ url_for('contact_page') }}" class="primary-cta large" aria-label="Book Consultation">Book Consultation</a>
+                <a href="{{ url_for('services_page') }}" class="secondary-cta large" aria-label="Explore Services">Explore Services</a>
+              </div>
+              <div class="hero-trust reveal-stagger" aria-label="Trusted by global media teams">
+                <span class="trust-chip reveal">OTT Platforms</span>
+                <span class="trust-chip reveal">Film Studios</span>
+                <span class="trust-chip reveal">Gaming Companies</span>
+                <span class="trust-chip reveal">Enterprise Media</span>
+              </div>
+            </div>
+            <div class="hero-media" aria-label="Featured reel preview">
+              <a href="{{ video_src }}" target="_blank" rel="noopener noreferrer" class="hero-media-card" aria-label="Open the featured reel video">
+                <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80&auto=format&fit=crop">
+                  <source src="{{ video_src }}" type="video/mp4" />
+                  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80&auto=format&fit=crop" alt="Featured showreel preview" class="hero-media-image" loading="eager" width="1200" height="900" />
+                </video>
+                <div class="hero-media-overlay">
+                  <span class="hero-media-label">Global Studio Reel</span>
+                  <span class="hero-media-play" aria-hidden="true">Play</span>
+                </div>
               </a>
-              <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:chandragirimanideep@gmail.com">chandragirimanideep@gmail.com</a></p>
-                <p><strong>Phone:</strong> <a href="tel:+919398574591">+91 9398574591</a></p>
+              <div class="hero-media-note">
+                <span class="hero-media-note-title">Infrastructure</span>
+                <span>AI-Assisted + Human-Led</span>
               </div>
-              <div class="response-box">
-                <span>Response Time</span>
-                <strong>I usually respond within 1–2 days</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section trust-strip reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Trusted Partnerships</p>
+            <h2>Built for global entertainment ecosystems</h2>
+            <p class="section-subtitle">Designed to match the scale, security, and precision demanded by Netflix-level platforms.</p>
+          </div>
+          <div class="logo-wall reveal-stagger">
+            <div class="logo-tile reveal">StreamCore</div>
+            <div class="logo-tile reveal">Studio Nexus</div>
+            <div class="logo-tile reveal">ArcadeX</div>
+            <div class="logo-tile reveal">Aurora Media</div>
+            <div class="logo-tile reveal">VastFrame</div>
+            <div class="logo-tile reveal">OmniDub</div>
+          </div>
+        </section>
+
+        <section class="section reveal" id="services">
+          <div class="section-heading">
+            <p class="eyebrow">Enterprise Services</p>
+            <h2>Premium localization for global storytelling</h2>
+            <p class="section-subtitle">End-to-end services across dubbing, subtitling, and post-production workflows.</p>
+          </div>
+          <div class="service-grid reveal-stagger">
+            <article class="service-card reveal">
+              <h3>Localization & Dubbing</h3>
+              <p>Native-language voice production across theatrical, OTT, and interactive media.</p>
+              <span class="service-tag">Studio-grade sound</span>
+            </article>
+            <article class="service-card reveal">
+              <h3>Subtitling & Captioning</h3>
+              <p>Broadcast-compliant subtitles, SDH, and closed captions with QC automation.</p>
+              <span class="service-tag">Regulatory ready</span>
+            </article>
+            <article class="service-card reveal">
+              <h3>Transcription & Adaptation</h3>
+              <p>Multilingual transcription, script adaptation, and cultural nuance alignment.</p>
+              <span class="service-tag">Local nuance</span>
+            </article>
+            <article class="service-card reveal">
+              <h3>Audio Post-Production</h3>
+              <p>Mixing, restoration, M&amp;E, and immersive audio for cinematic delivery.</p>
+              <span class="service-tag">Dolby-ready</span>
+            </article>
+            <article class="service-card reveal">
+              <h3>Video Post-Production</h3>
+              <p>Editing, finishing, mastering, and multi-format output at scale.</p>
+              <span class="service-tag">4K mastering</span>
+            </article>
+            <article class="service-card reveal">
+              <h3>Animation & Creative Tech</h3>
+              <p>Motion design, graphics, and multilingual adaptation for global campaigns.</p>
+              <span class="service-tag">Creative systems</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="global">
+          <div class="section-heading">
+            <p class="eyebrow">Global Capabilities</p>
+            <h2>Scale across markets with confidence</h2>
+            <p class="section-subtitle">24/7 production workflows, secure pipelines, and enterprise SLAs.</p>
+          </div>
+          <div class="capability-layout reveal-stagger">
+            <div class="capability-panel reveal">
+              <h3>Worldwide coverage</h3>
+              <p>130+ languages supported with in-market linguists, directors, and cultural specialists.</p>
+              <div class="capability-stats">
+                <div class="stat-card" data-count="130">
+                  <span class="stat-value">130</span>
+                  <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat-card" data-count="52">
+                  <span class="stat-value">52</span>
+                  <span class="stat-label">Markets served</span>
+                </div>
+                <div class="stat-card" data-count="24">
+                  <span class="stat-value">24</span>
+                  <span class="stat-label">Hour turnaround</span>
+                </div>
               </div>
+            </div>
+            <div class="capability-map reveal">
+              <div class="map-surface">
+                <span class="map-point point-one"></span>
+                <span class="map-point point-two"></span>
+                <span class="map-point point-three"></span>
+              </div>
+              <div class="map-label">
+                <p>Secure global production network</p>
+                <span>ISO-compliant workflows + regional redundancy</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal" id="trust">
+          <div class="section-heading">
+            <p class="eyebrow">Trust & Outcomes</p>
+            <h2>Enterprise confidence, cinematic precision</h2>
+            <p class="section-subtitle">Performance metrics designed for international media operations.</p>
+          </div>
+          <div class="case-grid reveal-stagger">
+            <article class="case-card reveal">
+              <h3>Streaming Platforms</h3>
+              <p>Localization pipelines for episodic releases across global time zones.</p>
+              <div class="metric">
+                <span class="metric-value" data-count="99">99</span>
+                <span class="metric-label">% on-time delivery</span>
+              </div>
+            </article>
+            <article class="case-card reveal">
+              <h3>Film Studios</h3>
+              <p>Premium dubbing and theatrical mastering with in-theater QC.</p>
+              <div class="metric">
+                <span class="metric-value" data-count="48">48</span>
+                <span class="metric-label">Languages per release</span>
+              </div>
+            </article>
+            <article class="case-card reveal">
+              <h3>Gaming & Interactive</h3>
+              <p>Voice direction and adaptive content for live-service games.</p>
+              <div class="metric">
+                <span class="metric-value" data-count="6">6</span>
+                <span class="metric-label">Studio pods active</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="technology">
+          <div class="section-heading">
+            <p class="eyebrow">Technology + Infrastructure</p>
+            <h2>Media-tech architecture built for scale</h2>
+            <p class="section-subtitle">Hybrid AI workflows, studio-grade sound, and enterprise security.</p>
+          </div>
+          <div class="tech-grid reveal-stagger">
+            <article class="tech-card reveal">
+              <h3>AI-assisted localization</h3>
+              <p>Machine intelligence accelerates translation while human talent protects creative intent.</p>
+            </article>
+            <article class="tech-card reveal">
+              <h3>Cloud production pipelines</h3>
+              <p>Secure content orchestration, version control, and real-time stakeholder access.</p>
+            </article>
+            <article class="tech-card reveal">
+              <h3>Enterprise QA systems</h3>
+              <p>Automated QC, loudness compliance, and subtitle timing validation.</p>
+            </article>
+            <article class="tech-card reveal">
+              <h3>Studio-grade audio</h3>
+              <p>Dolby-compliant mixing, M&amp;E separation, and multi-track delivery.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="about">
+          <div class="section-heading">
+            <p class="eyebrow">About Chitrakala Media</p>
+            <h2>India-based, globally synchronized</h2>
+            <p class="section-subtitle">A strategic partner for enterprise media localization, post-production, and creative technology.</p>
+          </div>
+          <div class="about-grid reveal-stagger">
+            <div class="about-card reveal">
+              <h3>Visionary global outlook</h3>
+              <p>We help premium entertainment brands and studios scale internationally without losing nuance or intent.</p>
+            </div>
+            <div class="about-card reveal">
+              <h3>Trusted enterprise delivery</h3>
+              <p>Secure infrastructure, rigorous QA, and on-time delivery for high-volume content demands.</p>
+            </div>
+            <div class="about-card reveal">
+              <h3>Creative + technical balance</h3>
+              <p>Human-led direction supported by intelligent automation and cinematic finishing.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cta-section reveal" id="contact">
+          <div class="cta-panel">
+            <div class="cta-copy">
+              <p class="eyebrow">Executive Contact</p>
+              <h2>Ready for a global rollout?</h2>
+              <p class="lead">Book a private consultation with our localization leadership team.</p>
+            </div>
+            <div class="cta-actions">
+              <a href="{{ url_for('contact_page') }}" class="primary-cta large">Book Consultation</a>
+              <a href="{{ url_for('work_page') }}" class="secondary-cta large">Review Case Work</a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer class="footer">
-        <p>© 2026 Chitrakala. Manideep Chandragiri.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/chitrakala_iare/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.youtube.com/@freyaframe" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>{{ contact.company }}</h3>
+            <p>Localization, Dubbing & Global Post-Production</p>
+          </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <nav role="navigation" aria-label="Footer navigation">
+              <a href="{{ url_for('home') }}">Home</a>
+              <a href="{{ url_for('services_page') }}">Services</a>
+              <a href="{{ url_for('work_page') }}">Work</a>
+              <a href="{{ url_for('process_page') }}">Process</a>
+              <a href="{{ url_for('about_page') }}">About</a>
+              <a href="{{ url_for('blogs_page') }}">Insights</a>
+              <a href="{{ url_for('contact_page') }}">Contact</a>
+            </nav>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>{{ contact.address }}</p>
+            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>{{ contact.year }} {{ contact.company }}</p>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
         </div>
       </footer>
     </div>

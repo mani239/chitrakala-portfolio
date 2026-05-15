@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Services | {{ studio_name }}{% endblock %}
+{% block description %}Localization, dubbing, subtitling, and post-production services from {{ studio_name }}.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Services</p>
+  <h1 class="page-title">Enterprise services</h1>
+  <p class="page-intro">Global localization, dubbing, subtitling, captioning, transcription, and post-production delivered at scale.</p>
+</section>
+
+<section class="section service-sections reveal-stagger">
+  {% for service in services %}
+  <article class="service-group-card reveal">
+    <div class="service-group-head">
+      <p class="eyebrow">{{ service.group }}</p>
+    </div>
+    <div class="service-items">
+      {% for item in service['items'] %}
+      <div class="service-item">{{ item }}</div>
+      {% endfor %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="section service-notes reveal-stagger">
+  <div class="service-note-card reveal">
+    <p class="eyebrow">Address</p>
+    <p>{{ contact.address }}</p>
+  </div>
+  <div class="service-note-card reveal">
+    <p class="eyebrow">Email</p>
+    <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+  </div>
+  <div class="service-note-card reveal">
+    <p class="eyebrow">Company</p>
+    <p>{{ contact.company }}</p>
+  </div>
+</section>
+
+<section class="section contact-strip reveal">
+  <div>
+    <p class="eyebrow">Contact</p>
+    <h2>{{ contact.company }}</h2>
+    <p>{{ contact.address }}</p>
+    <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+  </div>
+</section>
+{% endblock %}

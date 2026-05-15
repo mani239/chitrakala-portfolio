@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /static/
+Disallow: /.env
+Disallow: /__pycache__/
+
+Sitemap: https://chitrakala.media/sitemap.xml
+
+# Crawl delay (optional - time in seconds between requests)
+Crawl-delay: 1

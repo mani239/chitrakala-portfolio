@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Portfolio | {{ studio_name }}{% endblock %}
+{% block description %}Browse selected localization and post-production case work from {{ studio_name }}.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Portfolio</p>
+  <h1 class="page-title">Selected case work</h1>
+  <p class="page-intro">Case studies and program highlights available under NDA.</p>
+</section>
+
+<section class="section projects-grid reveal-stagger">
+  {% for project in projects %}
+  <a href="{{ url_for('portfolio_detail_page', slug=project.slug) }}" class="project-card-link">
+    <article class="project-card reveal">
+      <div class="project-media">
+        <img src="{{ project.image }}" alt="{{ project.alt }}" class="project-image" loading="lazy" width="600" height="400" />
+        <span class="project-demo-badge">Confidential</span>
+      </div>
+      <div class="project-body">
+        <span class="project-category">{{ project.category }}</span>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+      </div>
+    </article>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Work | {{ studio_name }}{% endblock %}
+{% block description %}Global release programs and localization case work from {{ studio_name }}.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Work</p>
+  <h1 class="page-title">Global release programs</h1>
+  <p class="page-intro">Case studies and program highlights available under NDA for streaming, film, gaming, and enterprise media.</p>
+</section>
+
+<section class="section projects-grid reveal-stagger">
+  {% for project in projects %}
+  <a href="{{ url_for('work_detail_page', slug=project.slug) }}" class="project-card-link">
+    <article class="project-card reveal">
+      <div class="project-media">
+        <img src="{{ project.image }}" alt="{{ project.alt }}" class="project-image" loading="lazy" width="600" height="400" />
+        <span class="project-demo-badge">Demo</span>
+      </div>
+      <div class="project-body">
+        <span class="project-category">{{ project.category }}</span>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <p class="project-disclaimer">Actual work shared on request.</p>
+      </div>
+    </article>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}

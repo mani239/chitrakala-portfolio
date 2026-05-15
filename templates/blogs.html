@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Insights | {{ studio_name }}{% endblock %}
+{% block description %}Insights on media localization, dubbing, and global post-production from {{ studio_name }}.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">Insights</p>
+  <h1 class="page-title">Insights</h1>
+  <p class="page-intro">Thought leadership on localization, AI-assisted workflows, and global media infrastructure.</p>
+</section>
+
+<section class="section blog-list-grid reveal-stagger">
+  {% for post in blogs %}
+  <article class="blog-card reveal">
+    <p class="blog-category">{{ post.category }}</p>
+    <h2 class="blog-title">{{ post.title }}</h2>
+    <p class="blog-meta">{{ post.author }} · {{ post.date }}</p>
+    <p class="blog-excerpt">{{ post.excerpt }}</p>
+    <a href="{{ url_for('contact_page') }}" class="secondary-cta">Contact for details</a>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

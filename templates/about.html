@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}About | {{ studio_name }}{% endblock %}
+{% block description %}Enterprise localization, dubbing, and post-production partner based in India.{% endblock %}
+{% block content %}
+<section class="page-hero section reveal">
+  <p class="eyebrow">About</p>
+  <h1 class="page-title">Enterprise localization partner</h1>
+  <p class="page-intro">India-based media localization and post-production infrastructure serving global studios, OTT platforms, and enterprise media teams.</p>
+</section>
+
+<section class="section about-layout reveal-stagger">
+  <div class="about-panel reveal">
+    <p><strong>{{ contact.company }}:</strong> Enterprise localization and post-production partner built for global entertainment ecosystems.</p>
+    <p>We combine AI-assisted workflows with human creative leadership to protect intent while scaling across languages.</p>
+    <p>Secure studios, compliant delivery, and 24/7 production management support high-volume release schedules.</p>
+  </div>
+  <div class="about-highlights reveal-stagger">
+    <div class="highlight-card reveal">
+      <h3>Global studio network</h3>
+      <p>Secure dubbing stages and partner facilities across priority markets.</p>
+    </div>
+    <div class="highlight-card reveal">
+      <h3>Security &amp; compliance</h3>
+      <p>Encrypted pipelines, ISO-aligned QA, and enterprise access controls.</p>
+    </div>
+    <div class="highlight-card reveal">
+      <h3>India headquarters</h3>
+      <p>{{ contact.address }}</p>
+      <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

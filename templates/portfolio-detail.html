@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ project.title }} | Portfolio | {{ studio_name }}{% endblock %}
+{% block description %}Case study detail for {{ project.title }} from {{ studio_name }}.{% endblock %}
+{% block content %}
+<section class="page-hero section detail-hero reveal">
+  <p class="eyebrow">Portfolio Detail</p>
+  <h1 class="page-title">{{ project.title }}</h1>
+  <p class="page-intro">{{ project.description }}</p>
+</section>
+
+<section class="section detail-layout reveal-stagger">
+  <div class="detail-gallery">
+    {% for image in project.gallery %}
+    <img src="{{ image }}" alt="{{ project.alt }}" class="detail-image reveal" loading="lazy" />
+    {% endfor %}
+  </div>
+  <aside class="detail-panel reveal">
+    <p class="eyebrow">Confidential case study</p>
+    <p>Full project details are shared under NDA with qualified partners.</p>
+    <a href="{{ project.video_link }}" target="_blank" rel="noopener noreferrer" class="primary-cta">Open Case Video</a>
+  </aside>
+</section>
+{% endblock %}

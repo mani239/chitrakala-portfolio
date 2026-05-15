@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{{ studio_name }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ studio_tagline }}{% endblock %}" />
+    <meta name="author" content="{{ studio_name }}" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% block og_title %}{{ studio_name }}{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}{{ studio_tagline }}{% endblock %}" />
+    <meta property="og:url" content="https://chitrakala.media/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&h=630&fit=crop" />
+    <meta property="og:site_name" content="{{ studio_name }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% block og_title %}{{ studio_name }}{% endblock %}" />
+    <meta name="twitter:description" content="{% block og_description %}{{ studio_tagline }}{% endblock %}" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&h=630&fit=crop" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23fff'>🎬</text></svg>">
+  </head>
+  <body>
+    <div class="page-shell" data-theme="dark">
+      <a class="skip-to-main" href="#main-content">Skip to main content</a>
+      <header class="navbar" role="banner">
+        <div class="navbar-container">
+          <a href="{{ url_for('home') }}" class="brand" aria-label="{{ studio_name }} home">
+            <span class="brand-mark" aria-hidden="true">🎬</span>
+            <span><strong>Chitrakala Media</strong></span>
+          </a>
+          <nav class="nav-links" id="primary-navigation" role="navigation" aria-label="Main navigation">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('services_page') }}" class="nav-link">Services</a>
+            <a href="{{ url_for('work_page') }}" class="nav-link">Work</a>
+            <a href="{{ url_for('process_page') }}" class="nav-link">Process</a>
+            <a href="{{ url_for('about_page') }}" class="nav-link">About</a>
+            <a href="{{ url_for('blogs_page') }}" class="nav-link">Insights</a>
+            <a href="{{ url_for('contact_page') }}" class="nav-link">Contact</a>
+          </nav>
+          <div class="nav-actions">
+            <button class="nav-toggle" id="navToggle" aria-controls="primary-navigation" aria-expanded="false">Menu</button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" aria-pressed="false">
+              <span class="theme-icon" aria-hidden="true">🌙</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" role="main">
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>{{ contact.company }}</h3>
+            <p>Localization, Dubbing & Global Post-Production</p>
+          </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <nav role="navigation" aria-label="Footer navigation">
+              <a href="{{ url_for('home') }}">Home</a>
+              <a href="{{ url_for('services_page') }}">Services</a>
+              <a href="{{ url_for('work_page') }}">Work</a>
+              <a href="{{ url_for('process_page') }}">Process</a>
+              <a href="{{ url_for('about_page') }}">About</a>
+              <a href="{{ url_for('blogs_page') }}">Insights</a>
+              <a href="{{ url_for('contact_page') }}">Contact</a>
+            </nav>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>{{ contact.address }}</p>
+            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>{{ contact.year }} {{ contact.company }}</p>
+        </div>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

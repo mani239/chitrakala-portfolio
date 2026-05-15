@@ -2,13 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.py": {
-      "includeFiles": [
-        "templates/**",
-        "static/**",
-        "*.mp4",
-        "robots.txt",
-        "sitemap.xml"
-      ]
+      "includeFiles": "{templates/**,static/**,*.mp4,robots.txt,sitemap.xml}"
     }
   },
   "routes": [

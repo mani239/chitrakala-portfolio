@@ -8,14 +8,14 @@
     <meta name="author" content="{{ studio_name }}" />
     <meta name="theme-color" content="#0a0a0a" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{% block og_title %}{{ studio_name }}{% endblock %}" />
-    <meta property="og:description" content="{% block og_description %}{{ studio_tagline }}{% endblock %}" />
+    <meta property="og:title" content="{{ self.title() }}" />
+    <meta property="og:description" content="{{ self.description() }}" />
     <meta property="og:url" content="https://chitrakala.media/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&h=630&fit=crop" />
     <meta property="og:site_name" content="{{ studio_name }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{% block og_title %}{{ studio_name }}{% endblock %}" />
-    <meta name="twitter:description" content="{% block og_description %}{{ studio_tagline }}{% endblock %}" />
+    <meta name="twitter:title" content="{{ self.title() }}" />
+    <meta name="twitter:description" content="{{ self.description() }}" />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&h=630&fit=crop" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

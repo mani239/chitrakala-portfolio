@@ -3,6 +3,17 @@
   "builds": [
     { "src": "api/index.py", "use": "@vercel/python" }
   ],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": [
+        "templates/**",
+        "static/**",
+        "*.mp4",
+        "robots.txt",
+        "sitemap.xml"
+      ]
+    }
+  },
   "routes": [
     { "src": "/(.*)", "dest": "api/index.py" }
   ]

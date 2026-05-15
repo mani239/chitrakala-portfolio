@@ -1,7 +1,7 @@
 from flask import Flask, abort, render_template, send_from_directory, url_for
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates", static_folder="static")
 app.config['JSON_SORT_KEYS'] = False
 
 # Configuration
